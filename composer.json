@@ -1,0 +1,23 @@
+{
+  "name": "cluster28/team-share-documentation",
+  "license": "MIT",
+  "description": "Team share documentation",
+  "authors": [
+    {
+      "name": "Jordi Rejas",
+      "email": "github@rejas.eu"
+    }
+  ],
+  "type": "library",
+  "require": {
+    "php": ">=5.6",
+    "doctrine/common": "^3.2",
+    "symfony/finder": "^5.4",
+    "nikic/php-parser": "^4.13"
+  },
+  "autoload": {
+    "psr-4": {
+      "Cluster28\\TeamShareDocumentation\\": "src/"
+    }
+  }
+}
