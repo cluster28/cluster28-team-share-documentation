@@ -21,6 +21,10 @@ class Parser implements ParserInterface
 
     public function parseFiles(): Classes
     {
+        if (0 === count($this->configuration->getPaths())) {
+            return new Classes();
+        }
+
         $reflectionClasses = [];
 
         $finder = new Finder();
