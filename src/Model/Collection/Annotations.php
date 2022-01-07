@@ -10,9 +10,11 @@ use ReflectionMethod;
 
 class Annotations extends ArrayCollection
 {
-    public function addAnnotation(Reflector $reflector, ShareAnnotation $shareAnnotation)
+    public function addAnnotation(Reflector $reflector, ShareAnnotation $shareAnnotation): Annotations
     {
         $this->add([$reflector, $shareAnnotation]);
+
+        return $this;
     }
 
     public function getClassAnnotations(): ArrayCollection
