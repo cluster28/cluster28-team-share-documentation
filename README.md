@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/cluster28/cluster28-team-share-documentation/tree/master.svg?style=svg)](https://circleci.com/gh/cluster28/cluster28-team-share-documentation/tree/master)
+[![CircleCI](https://circleci.com/gh/cluster28/team-share-documentation/tree/master.svg?style=svg)](https://circleci.com/gh/cluster28/team-share-documentation/tree/master)
 
 # **Team share documentation**
 
