@@ -12,19 +12,19 @@ class Configuration
     private array $excludedPaths = [];
     private DateTimeInterface $startDate;
 
-    public function __construct(array $config = [])
+    public function __construct(array $options = [])
     {
-        if (isset($config['paths'])) {
-            $this->paths = is_string($config['paths']) ? [$config['paths']] : $config['paths'];
+        if (isset($options['paths'])) {
+            $this->paths = is_string($options['paths']) ? [$options['paths']] : $options['paths'];
         }
 
-        if (isset($config['excluded_paths'])) {
-            $this->paths = is_string($config['excluded_paths']) ? [$config['excluded_paths']] : $config['excluded_paths'];
+        if (isset($options['excluded_paths'])) {
+            $this->paths = is_string($options['excluded_paths']) ? [$options['excluded_paths']] : $options['excluded_paths'];
         }
 
         $this->startDate = new DateTime();
-        if (isset($config['intervalSpec'])) {
-            $this->startDate->sub(new DateInterval($config['intervalSpec']));
+        if (isset($options['interval_spec'])) {
+            $this->startDate->sub(new DateInterval($options['interval_spec']));
         } else {
             $this->startDate->sub(new DateInterval('P1M'));
         }
