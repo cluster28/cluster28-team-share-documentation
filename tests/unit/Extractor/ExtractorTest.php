@@ -1,6 +1,6 @@
 <?php
 
-namespace Unit\Extractor;
+namespace unit\Extractor;
 
 use Cluster28\TeamShareDocumentation\Configuration\Configuration;
 use Cluster28\TeamShareDocumentation\Extractor\AnnotationExtractor;

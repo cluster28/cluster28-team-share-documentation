@@ -1,6 +1,6 @@
 <?php
 
-namespace Unit\Parser;
+namespace unit\Parser;
 
 use Cluster28\TeamShareDocumentation\Configuration\Configuration;
 use Cluster28\TeamShareDocumentation\Model\Collection\Classes;

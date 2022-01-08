@@ -1,6 +1,6 @@
 <?php
 
-namespace Unit\Extractor;
+namespace unit\Extractor;
 
 use Cluster28\TeamShareDocumentation\Extractor\AnnotationExtractor;
 use Cluster28\TeamShareDocumentation\Extractor\AnnotationExtractorInterface;
@@ -15,11 +15,16 @@ class AnnotationExtractorTest extends TestCase
         $this->assertInstanceOf(AnnotationExtractorInterface::class, $annotationExtractor);
     }
 
-    public function testAnnotationExtractorMethods()
+    public function testAnnotationExtractorExtractClassAnnotationsMethod()
     {
         $annotationExtractor = new AnnotationExtractor();
         $this->assertIsArray($annotationExtractor->extractClassAnnotations(new ReflectionClass(self::class)));
         $this->assertCount(0, $annotationExtractor->extractClassAnnotations(new ReflectionClass(self::class)));
+    }
+
+    public function testAnnotationExtractorExtractMethodsAnnotationsMethod()
+    {
+        $annotationExtractor = new AnnotationExtractor();
         $this->assertIsArray($annotationExtractor->extractMethodsAnnotations(new ReflectionClass(self::class)));
         $this->assertCount(0, $annotationExtractor->extractMethodsAnnotations(new ReflectionClass(self::class)));
     }

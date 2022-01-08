@@ -1,6 +1,6 @@
 <?php
 
-namespace Unit\Configuration;
+namespace unit\Configuration;
 
 use Cluster28\TeamShareDocumentation\Configuration\Configuration;
 use DateTime;

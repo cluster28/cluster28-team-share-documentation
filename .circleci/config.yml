@@ -8,4 +8,4 @@ jobs:
       - run: sudo apt update
       - run: sudo docker-php-ext-install zip
       - run: composer install -n --prefer-dist
-      - run: ./vendor/bin/phpunit tests/Unit
+      - run: ./vendor/bin/phpunit -c phpunit.dist.xml
