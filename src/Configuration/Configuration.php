@@ -10,7 +10,6 @@ class Configuration
 {
     private array $paths = [];
     private array $excludedPaths = [];
-    private DateTimeInterface $startDate;
 
     public function __construct(array $options = [])
     {
@@ -20,13 +19,6 @@ class Configuration
 
         if (isset($options['excluded_paths'])) {
             $this->paths = is_string($options['excluded_paths']) ? [$options['excluded_paths']] : $options['excluded_paths'];
-        }
-
-        $this->startDate = new DateTime();
-        if (isset($options['interval_spec'])) {
-            $this->startDate->sub(new DateInterval($options['interval_spec']));
-        } else {
-            $this->startDate->sub(new DateInterval('P1M'));
         }
     }
 
@@ -38,10 +30,5 @@ class Configuration
     public function getExcludedPaths(): array
     {
         return $this->excludedPaths;
-    }
-
-    public function getStartDate(): DateTimeInterface
-    {
-        return $this->startDate;
     }
 }
