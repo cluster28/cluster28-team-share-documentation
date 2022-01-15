@@ -3,7 +3,5 @@ vendor/
 composer.lock
 docker-compose.yml
 Makefile
-
 .*
-!.travis.yml
-.circleci/config.yml
+!.gitattributes
