@@ -3,8 +3,6 @@
 namespace unit\Configuration;
 
 use Cluster28\TeamShareDocumentation\Configuration\Configuration;
-use DateTime;
-use Exception;
 use PHPUnit\Framework\TestCase;
 
 class ConfigurationTest extends TestCase
@@ -35,19 +33,5 @@ class ConfigurationTest extends TestCase
         $options = ['excluded_paths' => ['foo']];
         $configuration = new Configuration($options);
         $this->assertIsArray($configuration->getExcludedPaths());
-    }
-
-    public function testConfigurationWithIntervalSpecOption()
-    {
-        $options = ['interval_spec' => 'P10D'];
-        $configuration = new Configuration($options);
-        $this->assertEquals(10, $configuration->getStartDate()->diff(new DateTime())->d);
-    }
-
-    public function testConfigurationWithInvalidIntervalSpecOption()
-    {
-        $this->expectException(Exception::class);
-        $options = ['interval_spec' => '1D'];
-        new Configuration($options);
     }
 }

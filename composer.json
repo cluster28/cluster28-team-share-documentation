@@ -23,5 +23,10 @@
     "psr-4": {
       "Cluster28\\TeamShareDocumentation\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Cluster28\\TeamShareDocumentation\\Tests\\Functional\\": "tests/functional"
+    }
   }
 }
