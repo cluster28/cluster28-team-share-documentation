@@ -7,6 +7,9 @@ use Cluster28\TeamShareDocumentation\Parser\Parser;
 use Cluster28\TeamShareDocumentation\Parser\ParserInterface;
 use InvalidArgumentException;
 
+/**
+ * @author Jordi Rejas <github@rejas.eu>
+ */
 class ExtractorFactory
 {
     public static function createExtractor(Configuration $configuration, array $options = []): ExtractorInterface

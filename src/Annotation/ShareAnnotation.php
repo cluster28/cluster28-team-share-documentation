@@ -6,6 +6,7 @@ use DateTime;
 
 /**
  * @Annotation
+ * @author Jordi Rejas <github@rejas.eu>
  */
 class ShareAnnotation
 {

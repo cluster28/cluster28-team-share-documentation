@@ -8,6 +8,9 @@ use Cluster28\TeamShareDocumentation\Model\Collection\Annotations;
 use Cluster28\TeamShareDocumentation\Parser\ParserInterface;
 use Reflector;
 
+/**
+ * @author Jordi Rejas <github@rejas.eu>
+ */
 class Extractor implements ExtractorInterface
 {
     private Configuration $configuration;

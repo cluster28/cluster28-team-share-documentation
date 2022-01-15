@@ -7,6 +7,9 @@ use Doctrine\Common\Annotations\AnnotationReader;
 use ReflectionClass;
 use ReflectionMethod;
 
+/**
+ * @author Jordi Rejas <github@rejas.eu>
+ */
 class AnnotationExtractor implements AnnotationExtractorInterface
 {
     private AnnotationReader $annotationReader;

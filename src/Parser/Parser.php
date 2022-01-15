@@ -10,6 +10,9 @@ use PhpParser\Node\Stmt\Namespace_;
 use PhpParser\ParserFactory;
 use Symfony\Component\Finder\Finder;
 
+/**
+ * @author Jordi Rejas <github@rejas.eu>
+ */
 class Parser implements ParserInterface
 {
     private Configuration $configuration;

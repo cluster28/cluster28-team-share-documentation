@@ -8,6 +8,9 @@ use Reflector;
 use ReflectionClass;
 use ReflectionMethod;
 
+/**
+ * @author Jordi Rejas <github@rejas.eu>
+ */
 class Annotations extends ArrayCollection
 {
     public function addAnnotation(Reflector $reflector, ShareAnnotation $shareAnnotation): Annotations

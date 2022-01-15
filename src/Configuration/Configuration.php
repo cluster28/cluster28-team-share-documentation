@@ -2,10 +2,9 @@
 
 namespace Cluster28\TeamShareDocumentation\Configuration;
 
-use DateInterval;
-use DateTime;
-use DateTimeInterface;
-
+/**
+ * @author Jordi Rejas <github@rejas.eu>
+ */
 class Configuration
 {
     private array $paths = [];
