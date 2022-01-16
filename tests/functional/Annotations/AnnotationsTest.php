@@ -193,20 +193,12 @@ class AnnotationsTest extends TestCase
         $arrayKeys = array_keys($arrayAnnotations);
         $this->assertEquals('ClassTag1', $arrayKeys[0]);
         $this->testIsReflectionClass(current($arrayAnnotations)[0][0]);
-        $this->testClass4(current($arrayAnnotations)[0][1]);
-        $this->testClass1(current($arrayAnnotations)[1][1]);
         $this->assertEquals('ClassTag2', $arrayKeys[1]);
         $this->testIsReflectionClass(next($arrayAnnotations)[0][0]);
-        $this->testClass1(current($arrayAnnotations)[0][1]);
-        $this->testClass2(current($arrayAnnotations)[1][1]);
         $this->assertEquals('ClassTag3', $arrayKeys[2]);
         $this->testIsReflectionClass(next($arrayAnnotations)[0][0]);
-        $this->testClass2(current($arrayAnnotations)[0][1]);
-        $this->testClass3(current($arrayAnnotations)[1][1]);
         $this->assertEquals('ClassTag4', $arrayKeys[3]);
         $this->testIsReflectionClass(next($arrayAnnotations)[0][0]);
-        $this->testClass4(current($arrayAnnotations)[0][1]);
-        $this->testClass3(current($arrayAnnotations)[1][1]);
     }
 
     public function testClassAnnotationsSortedByTagsDesc()
@@ -215,20 +207,12 @@ class AnnotationsTest extends TestCase
         $arrayKeys = array_keys($arrayAnnotations);
         $this->assertEquals('ClassTag4', $arrayKeys[0]);
         $this->testIsReflectionClass(current($arrayAnnotations)[0][0]);
-        $this->testClass4(current($arrayAnnotations)[0][1]);
-        $this->testClass3(current($arrayAnnotations)[1][1]);
         $this->assertEquals('ClassTag3', $arrayKeys[1]);
         $this->testIsReflectionClass(next($arrayAnnotations)[0][0]);
-        $this->testClass2(current($arrayAnnotations)[0][1]);
-        $this->testClass3(current($arrayAnnotations)[1][1]);
         $this->assertEquals('ClassTag2', $arrayKeys[2]);
         $this->testIsReflectionClass(next($arrayAnnotations)[0][0]);
-        $this->testClass1(current($arrayAnnotations)[0][1]);
-        $this->testClass2(current($arrayAnnotations)[1][1]);
         $this->assertEquals('ClassTag1', $arrayKeys[3]);
         $this->testIsReflectionClass(next($arrayAnnotations)[0][0]);
-        $this->testClass4(current($arrayAnnotations)[0][1]);
-        $this->testClass1(current($arrayAnnotations)[1][1]);
     }
 
     public function testMethodAnnotationsSortedByTagsAsc()
@@ -237,20 +221,12 @@ class AnnotationsTest extends TestCase
         $arrayKeys = array_keys($arrayAnnotations);
         $this->assertEquals('MethodTag1', $arrayKeys[0]);
         $this->testIsReflectionMethod(current($arrayAnnotations)[0][0]);
-        $this->testMethodClass4(current($arrayAnnotations)[0][1]);
-        $this->testMethodClass1(current($arrayAnnotations)[1][1]);
         $this->assertEquals('MethodTag2', $arrayKeys[1]);
         $this->testIsReflectionMethod(next($arrayAnnotations)[0][0]);
-        $this->testMethodClass1(current($arrayAnnotations)[0][1]);
-        $this->testMethodClass2(current($arrayAnnotations)[1][1]);
         $this->assertEquals('MethodTag3', $arrayKeys[2]);
         $this->testIsReflectionMethod(next($arrayAnnotations)[0][0]);
-        $this->testMethodClass2(current($arrayAnnotations)[0][1]);
-        $this->testMethodClass3(current($arrayAnnotations)[1][1]);
         $this->assertEquals('MethodTag4', $arrayKeys[3]);
         $this->testIsReflectionMethod(next($arrayAnnotations)[0][0]);
-        $this->testMethodClass4(current($arrayAnnotations)[0][1]);
-        $this->testMethodClass3(current($arrayAnnotations)[1][1]);
     }
 
     public function testMethodAnnotationsSortedByTagsDesc()
@@ -259,20 +235,12 @@ class AnnotationsTest extends TestCase
         $arrayKeys = array_keys($arrayAnnotations);
         $this->assertEquals('MethodTag4', $arrayKeys[0]);
         $this->testIsReflectionMethod(current($arrayAnnotations)[0][0]);
-        $this->testMethodClass4(current($arrayAnnotations)[0][1]);
-        $this->testMethodClass3(current($arrayAnnotations)[1][1]);
         $this->assertEquals('MethodTag3', $arrayKeys[1]);
         $this->testIsReflectionMethod(next($arrayAnnotations)[0][0]);
-        $this->testMethodClass2(current($arrayAnnotations)[0][1]);
-        $this->testMethodClass3(current($arrayAnnotations)[1][1]);
         $this->assertEquals('MethodTag2', $arrayKeys[2]);
         $this->testIsReflectionMethod(next($arrayAnnotations)[0][0]);
-        $this->testMethodClass1(current($arrayAnnotations)[0][1]);
-        $this->testMethodClass2(current($arrayAnnotations)[1][1]);
         $this->assertEquals('MethodTag1', $arrayKeys[3]);
         $this->testIsReflectionMethod(next($arrayAnnotations)[0][0]);
-        $this->testMethodClass4(current($arrayAnnotations)[0][1]);
-        $this->testMethodClass1(current($arrayAnnotations)[1][1]);
     }
 
     public function testAllAnnotationsSortedByTagsAsc()
@@ -281,36 +249,20 @@ class AnnotationsTest extends TestCase
         $arrayKeys = array_keys($arrayAnnotations);
         $this->assertEquals('ClassTag1', $arrayKeys[0]);
         $this->testIsReflectionClass(current($arrayAnnotations)[0][0]);
-        $this->testClass4(current($arrayAnnotations)[0][1]);
-        $this->testClass1(current($arrayAnnotations)[1][1]);
         $this->assertEquals('ClassTag2', $arrayKeys[1]);
         $this->testIsReflectionClass(next($arrayAnnotations)[0][0]);
-        $this->testClass1(current($arrayAnnotations)[0][1]);
-        $this->testClass2(current($arrayAnnotations)[1][1]);
         $this->assertEquals('ClassTag3', $arrayKeys[2]);
         $this->testIsReflectionClass(next($arrayAnnotations)[0][0]);
-        $this->testClass2(current($arrayAnnotations)[0][1]);
-        $this->testClass3(current($arrayAnnotations)[1][1]);
         $this->assertEquals('ClassTag4', $arrayKeys[3]);
         $this->testIsReflectionClass(next($arrayAnnotations)[0][0]);
-        $this->testClass4(current($arrayAnnotations)[0][1]);
-        $this->testClass3(current($arrayAnnotations)[1][1]);
         $this->assertEquals('MethodTag1', $arrayKeys[4]);
         $this->testIsReflectionMethod(next($arrayAnnotations)[0][0]);
-        $this->testMethodClass4(current($arrayAnnotations)[0][1]);
-        $this->testMethodClass1(current($arrayAnnotations)[1][1]);
         $this->assertEquals('MethodTag2', $arrayKeys[5]);
         $this->testIsReflectionMethod(next($arrayAnnotations)[0][0]);
-        $this->testMethodClass1(current($arrayAnnotations)[0][1]);
-        $this->testMethodClass2(current($arrayAnnotations)[1][1]);
         $this->assertEquals('MethodTag3', $arrayKeys[6]);
         $this->testIsReflectionMethod(next($arrayAnnotations)[0][0]);
-        $this->testMethodClass2(current($arrayAnnotations)[0][1]);
-        $this->testMethodClass3(current($arrayAnnotations)[1][1]);
         $this->assertEquals('MethodTag4', $arrayKeys[7]);
         $this->testIsReflectionMethod(next($arrayAnnotations)[0][0]);
-        $this->testMethodClass4(current($arrayAnnotations)[0][1]);
-        $this->testMethodClass3(current($arrayAnnotations)[1][1]);
     }
 
     public function testAllAnnotationsSortedByTagsDesc()
@@ -319,36 +271,20 @@ class AnnotationsTest extends TestCase
         $arrayKeys = array_keys($arrayAnnotations);
         $this->assertEquals('MethodTag4', $arrayKeys[0]);
         $this->testIsReflectionMethod(current($arrayAnnotations)[0][0]);
-        $this->testMethodClass4(current($arrayAnnotations)[0][1]);
-        $this->testMethodClass3(current($arrayAnnotations)[1][1]);
         $this->assertEquals('MethodTag3', $arrayKeys[1]);
         $this->testIsReflectionMethod(next($arrayAnnotations)[0][0]);
-        $this->testMethodClass2(current($arrayAnnotations)[0][1]);
-        $this->testMethodClass3(current($arrayAnnotations)[1][1]);
         $this->assertEquals('MethodTag2', $arrayKeys[2]);
         $this->testIsReflectionMethod(next($arrayAnnotations)[0][0]);
-        $this->testMethodClass1(current($arrayAnnotations)[0][1]);
-        $this->testMethodClass2(current($arrayAnnotations)[1][1]);
         $this->assertEquals('MethodTag1', $arrayKeys[3]);
         $this->testIsReflectionMethod(next($arrayAnnotations)[0][0]);
-        $this->testMethodClass4(current($arrayAnnotations)[0][1]);
-        $this->testMethodClass1(current($arrayAnnotations)[1][1]);
         $this->assertEquals('ClassTag4', $arrayKeys[4]);
         $this->testIsReflectionClass(next($arrayAnnotations)[0][0]);
-        $this->testClass4(current($arrayAnnotations)[0][1]);
-        $this->testClass3(current($arrayAnnotations)[1][1]);
         $this->assertEquals('ClassTag3', $arrayKeys[5]);
         $this->testIsReflectionClass(next($arrayAnnotations)[0][0]);
-        $this->testClass2(current($arrayAnnotations)[0][1]);
-        $this->testClass3(current($arrayAnnotations)[1][1]);
         $this->assertEquals('ClassTag2', $arrayKeys[6]);
         $this->testIsReflectionClass(next($arrayAnnotations)[0][0]);
-        $this->testClass1(current($arrayAnnotations)[0][1]);
-        $this->testClass2(current($arrayAnnotations)[1][1]);
         $this->assertEquals('ClassTag1', $arrayKeys[7]);
         $this->testIsReflectionClass(next($arrayAnnotations)[0][0]);
-        $this->testClass4(current($arrayAnnotations)[0][1]);
-        $this->testClass1(current($arrayAnnotations)[1][1]);
     }
 
     public function testAllAnnotationsGroupedByClassName()
