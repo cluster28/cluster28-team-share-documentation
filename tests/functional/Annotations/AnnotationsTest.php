@@ -55,7 +55,7 @@ class AnnotationsTest extends TestCase
         }
     }
 
-    public function testClassAnnotationsIndexesSortedByDateAsc()
+    public function testClassAnnotationsSortedByDateAsc()
     {
         $arrayAnnotations = $this->extractor->extractAnnotations()->getClassAnnotationsSortedByDateAsc()->toArray();
         $arrayKeys = array_keys($arrayAnnotations);
@@ -73,7 +73,7 @@ class AnnotationsTest extends TestCase
         $this->testClass4(current($arrayAnnotations)[0][1]);
     }
 
-    public function testMethodAnnotationsIndexesSortedByDateAsc()
+    public function testMethodAnnotationsSortedByDateAsc()
     {
         $arrayAnnotations = $this->extractor->extractAnnotations()->getMethodAnnotationsSortedByDateAsc()->toArray();
         $arrayKeys = array_keys($arrayAnnotations);
@@ -91,7 +91,7 @@ class AnnotationsTest extends TestCase
         $this->testMethodClass4(current($arrayAnnotations)[0][1]);
     }
 
-    public function testClassAnnotationsIndexesSortedByDateDesc()
+    public function testClassAnnotationsSortedByDateDesc()
     {
         $arrayAnnotations = $this->extractor->extractAnnotations()->getClassAnnotationsSortedByDateDesc()->toArray();
         $arrayKeys = array_keys($arrayAnnotations);
@@ -109,7 +109,7 @@ class AnnotationsTest extends TestCase
         $this->testClass1(current($arrayAnnotations)[0][1]);
     }
 
-    public function testMethodAnnotationsIndexesSortedByDateDesc()
+    public function testMethodAnnotationsSortedByDateDesc()
     {
         $arrayAnnotations = $this->extractor->extractAnnotations()->getMethodAnnotationsSortedByDateDesc()->toArray();
         $arrayKeys = array_keys($arrayAnnotations);
@@ -187,7 +187,7 @@ class AnnotationsTest extends TestCase
         $this->testClass1(current($arrayAnnotations)[0][1]);
     }
 
-    public function testClassAnnotationsIndexesSortedByTagsAsc()
+    public function testClassAnnotationsSortedByTagsAsc()
     {
         $arrayAnnotations = $this->extractor->extractAnnotations()->getClassAnnotationsSortedByTagsAsc()->toArray();
         $arrayKeys = array_keys($arrayAnnotations);
@@ -209,7 +209,7 @@ class AnnotationsTest extends TestCase
         $this->testClass3(current($arrayAnnotations)[1][1]);
     }
 
-    public function testClassAnnotationsIndexesSortedByTagsDesc()
+    public function testClassAnnotationsSortedByTagsDesc()
     {
         $arrayAnnotations = $this->extractor->extractAnnotations()->getClassAnnotationsSortedByTagsDesc()->toArray();
         $arrayKeys = array_keys($arrayAnnotations);
@@ -231,7 +231,7 @@ class AnnotationsTest extends TestCase
         $this->testClass1(current($arrayAnnotations)[1][1]);
     }
 
-    public function testMethodAnnotationsIndexesSortedByTagsAsc()
+    public function testMethodAnnotationsSortedByTagsAsc()
     {
         $arrayAnnotations = $this->extractor->extractAnnotations()->getMethodAnnotationsSortedByTagsAsc()->toArray();
         $arrayKeys = array_keys($arrayAnnotations);
@@ -253,7 +253,7 @@ class AnnotationsTest extends TestCase
         $this->testMethodClass3(current($arrayAnnotations)[1][1]);
     }
 
-    public function testMethodAnnotationsIndexesSortedByTagsDesc()
+    public function testMethodAnnotationsSortedByTagsDesc()
     {
         $arrayAnnotations = $this->extractor->extractAnnotations()->getMethodAnnotationsSortedByTagsDesc()->toArray();
         $arrayKeys = array_keys($arrayAnnotations);
@@ -275,7 +275,7 @@ class AnnotationsTest extends TestCase
         $this->testMethodClass1(current($arrayAnnotations)[1][1]);
     }
 
-    public function testAllAnnotationsIndexesSortedByTagsAsc()
+    public function testAllAnnotationsSortedByTagsAsc()
     {
         $arrayAnnotations = $this->extractor->extractAnnotations()->getAllAnnotationsSortedByTagsAsc()->toArray();
         $arrayKeys = array_keys($arrayAnnotations);
@@ -313,7 +313,7 @@ class AnnotationsTest extends TestCase
         $this->testMethodClass3(current($arrayAnnotations)[1][1]);
     }
 
-    public function testAllAnnotationsIndexesSortedByTagsDesc()
+    public function testAllAnnotationsSortedByTagsDesc()
     {
         $arrayAnnotations = $this->extractor->extractAnnotations()->getAllAnnotationsSortedByTagsDesc()->toArray();
         $arrayKeys = array_keys($arrayAnnotations);
