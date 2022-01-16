@@ -87,6 +87,55 @@ class Annotations extends ArrayCollection
         );
     }
 
+    public function getClassAnnotationsSortedByTagsAsc(): ArrayCollection
+    {
+        return new ArrayCollection($this->sortByTag($this->getClassAnnotations()));
+    }
+
+    public function getClassAnnotationsSortedByTagsDesc(): ArrayCollection
+    {
+        return new ArrayCollection($this->sortByTag($this->getClassAnnotations(), 'desc'));
+    }
+
+    public function getMethodAnnotationsSortedByTagsAsc(): ArrayCollection
+    {
+        return new ArrayCollection($this->sortByTag($this->getMethodAnnotations()));
+    }
+
+    public function getMethodAnnotationsSortedByTagsDesc(): ArrayCollection
+    {
+        return new ArrayCollection($this->sortByTag($this->getMethodAnnotations(), 'desc'));
+    }
+
+    public function getAllAnnotationsSortedByTagsAsc(): ArrayCollection
+    {
+        return new ArrayCollection(
+            $this->sortByTag(
+                new ArrayCollection(
+                    array_merge(
+                        $this->getClassAnnotations()->toArray(),
+                        $this->getMethodAnnotations()->toArray()
+                    )
+                )
+            )
+        );
+    }
+
+    public function getAllAnnotationsSortedByTagsDesc(): ArrayCollection
+    {
+        return new ArrayCollection(
+            $this->sortByTag(
+                new ArrayCollection(
+                    array_merge(
+                        $this->getClassAnnotations()->toArray(),
+                        $this->getMethodAnnotations()->toArray()
+                    ),
+                ),
+                'desc'
+            )
+        );
+    }
+
     public function getAllAnnotationsGroupedByClassName(): ArrayCollection
     {
         $array = [];
@@ -120,6 +169,26 @@ class Annotations extends ArrayCollection
                     $array[$date] = [];
                 }
                 $array[$date][] = $element;
+            }
+        }
+
+        'asc' === $order ? ksort($array) : krsort($array);
+
+        return $array;
+    }
+
+    private function sortByTag(ArrayCollection $arrayCollection, $order = 'asc')
+    {
+        $array = [];
+        foreach ($arrayCollection as $element) {
+            if ($element[1] instanceof ShareAnnotation) {
+                $tags = $element[1]->tags;
+                foreach ($tags as $tag) {
+                    if (!isset($array[$tag])) {
+                        $array[$tag] = [];
+                    }
+                    $array[$tag][] = $element;
+                }
             }
         }
 

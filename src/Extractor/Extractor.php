@@ -33,17 +33,16 @@ class Extractor implements ExtractorInterface
         $annotations = new Annotations();
 
         foreach ($classes->toArray() as $class) {
-
             foreach (
                 array_merge(
                     $this->annotationExtractor->extractClassAnnotations($class),
                     $this->annotationExtractor->extractMethodsAnnotations($class)
                 ) as $array) {
-                    /** @var Reflector $reflector */
-                    $reflector = $array[0];
-                    /** @var ShareAnnotation $shareAnnotation */
-                    $shareAnnotation = $array[1];
-                    $annotations->addAnnotation($reflector, $shareAnnotation);
+                /** @var Reflector $reflector */
+                $reflector = $array[0];
+                /** @var ShareAnnotation $shareAnnotation */
+                $shareAnnotation = $array[1];
+                $annotations->addAnnotation($reflector, $shareAnnotation);
             }
         }
 
