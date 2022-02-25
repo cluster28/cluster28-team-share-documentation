@@ -24,16 +24,16 @@ class ExtractorTest extends TestCase
 
     public function testExtractionCount()
     {
-        $this->assertEquals(8, $this->extractor->extractAnnotations()->count());
+        $this->assertEquals(8, count($this->extractor->execute()->getAllAnnotations()));
     }
 
     public function testExtractionFromClassesCount()
     {
-        $this->assertEquals(4, $this->extractor->extractAnnotations()->getClassAnnotations()->count());
+        $this->assertEquals(4, count($this->extractor->execute()->getClassAnnotations()));
     }
 
     public function testExtractionFromMethodsCount()
     {
-        $this->assertEquals(4, $this->extractor->extractAnnotations()->getMethodAnnotations()->count());
+        $this->assertEquals(4, count($this->extractor->execute()->getMethodAnnotations()));
     }
 }

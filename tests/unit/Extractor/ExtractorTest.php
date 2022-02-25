@@ -6,7 +6,7 @@ use Cluster28\TeamShareDocumentation\Configuration\Configuration;
 use Cluster28\TeamShareDocumentation\Extractor\AnnotationExtractor;
 use Cluster28\TeamShareDocumentation\Extractor\Extractor;
 use Cluster28\TeamShareDocumentation\Extractor\ExtractorInterface;
-use Cluster28\TeamShareDocumentation\Model\Collection\Annotations;
+use Cluster28\TeamShareDocumentation\Model\ExtractionResult;
 use Cluster28\TeamShareDocumentation\Parser\Parser;
 use PHPUnit\Framework\TestCase;
 
@@ -31,6 +31,6 @@ class ExtractorTest extends TestCase
 
     public function testExtractorExtractAnnotationsMethod()
     {
-        $this->assertInstanceOf(Annotations::class, $this->extractor->extractAnnotations());
+        $this->assertInstanceOf(ExtractionResult::class, $this->extractor->execute());
     }
 }

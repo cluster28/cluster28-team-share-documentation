@@ -105,9 +105,9 @@ class ExtractionResult
     {
         $tagsSortMap = [];
 
-        foreach($array as $value) {
-            foreach($value->tags as $tag) {
-                $tagsSortMap[$tag][] = $value;
+        foreach($array as $annotationData) {
+            foreach($annotationData->getAnnotation()->tags as $tag) {
+                $tagsSortMap[$tag][] = $annotationData;
             }
         }
 
@@ -122,19 +122,18 @@ class ExtractionResult
 
     private function sortByDate(array $array, $order = 'asc'): array
     {
-        return $this->sortBy($array, 'date', 'asc');
+        return $this->sortAnnotationBy($array, 'date', $order);
     }
 
-    private function sortBy(array $arrayToSort, $sortKey = '', $order = self::SORT_ASC): array
+    private function sortAnnotationBy(array $arrayToSort, $sortKey = '', $order = self::SORT_ASC): array
     {
         $result = $arrayToSort;
-        $column = array_column($result, $sortKey);
-
-        if (self::SORT_ASC === $order) {
-            array_multisort($column, $result);
-        } else {
-            array_multisort($column, SORT_DESC, $result);
-        }
+        usort($result, function($previous, $next) use ($sortKey, $order) {
+            if (self::SORT_ASC === $order) {
+                return $previous->getAnnotation()->{$sortKey} > $next->getAnnotation()->{$sortKey};
+            }
+            return $previous->getAnnotation()->{$sortKey} < $next->getAnnotation()->{$sortKey};
+        });
         return $result;
     }
 }
