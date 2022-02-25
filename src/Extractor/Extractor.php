@@ -2,11 +2,11 @@
 
 namespace Cluster28\TeamShareDocumentation\Extractor;
 
-use Cluster28\TeamShareDocumentation\Annotation\ShareAnnotation;
 use Cluster28\TeamShareDocumentation\Configuration\Configuration;
-use Cluster28\TeamShareDocumentation\Model\Collection\Annotations;
+use Cluster28\TeamShareDocumentation\Model\ExtractionResult;
+use Cluster28\TeamShareDocumentation\Model\ClassInfo;
+use Cluster28\TeamShareDocumentation\Model\ResultInfo;
 use Cluster28\TeamShareDocumentation\Parser\ParserInterface;
-use Reflector;
 
 /**
  * @author Jordi Rejas <github@rejas.eu>
@@ -22,30 +22,21 @@ class Extractor implements ExtractorInterface
         ParserInterface $parser,
         AnnotationExtractorInterface $annotationExtractor
     ) {
-        $this->configuration = $configuration;
         $this->parser = $parser;
         $this->annotationExtractor = $annotationExtractor;
     }
 
-    public function extractAnnotations(): Annotations
+    public function execute(): ExtractionResult
     {
-        $classes = $this->parser->parseFiles();
-        $annotations = new Annotations();
+        $extractionResult = new ExtractionResult();
 
-        foreach ($classes->toArray() as $class) {
-            foreach (
-                array_merge(
-                    $this->annotationExtractor->extractClassAnnotations($class),
-                    $this->annotationExtractor->extractMethodsAnnotations($class)
-                ) as $array) {
-                /** @var Reflector $reflector */
-                $reflector = $array[0];
-                /** @var ShareAnnotation $shareAnnotation */
-                $shareAnnotation = $array[1];
-                $annotations->addAnnotation($reflector, $shareAnnotation);
-            }
+        foreach ($this->parser->parseFiles() as $reflectionClass) {
+            $resultInfo = new ResultInfo($reflectionClass);
+            $resultInfo->addClassAnnotations($this->annotationExtractor->extractClassAnnotations($reflectionClass));
+            $resultInfo->addMethodAnnotations($this->annotationExtractor->extractMethodsAnnotations($reflectionClass));
+            $extractionResult->addResult($resultInfo);
         }
 
-        return $annotations;
+        return $extractionResult;
     }
 }

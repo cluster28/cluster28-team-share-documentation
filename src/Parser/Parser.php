@@ -3,7 +3,6 @@
 namespace Cluster28\TeamShareDocumentation\Parser;
 
 use Cluster28\TeamShareDocumentation\Configuration\Configuration;
-use Cluster28\TeamShareDocumentation\Model\Collection\Classes;
 use PhpParser\Error;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\Namespace_;
@@ -22,10 +21,10 @@ class Parser implements ParserInterface
         $this->configuration = $configuration;
     }
 
-    public function parseFiles(): Classes
+    public function parseFiles(): array
     {
         if (0 === count($this->configuration->getPaths())) {
-            return new Classes();
+            return [];
         }
 
         $reflectionClasses = [];
@@ -62,6 +61,6 @@ class Parser implements ParserInterface
             }
         }
 
-        return new Classes($reflectionClasses);
+        return $reflectionClasses;
     }
 }
