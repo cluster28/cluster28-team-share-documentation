@@ -31,10 +31,8 @@ class Extractor implements ExtractorInterface
         $extractionResult = new ExtractionResult();
 
         foreach ($this->parser->parseFiles() as $reflectionClass) {
-            $resultInfo = new ResultInfo($reflectionClass);
-            $resultInfo->addClassAnnotations($this->annotationExtractor->extractClassAnnotations($reflectionClass));
-            $resultInfo->addMethodAnnotations($this->annotationExtractor->extractMethodsAnnotations($reflectionClass));
-            $extractionResult->addResult($resultInfo);
+            $extractionResult->addClassAnnotations($this->annotationExtractor->extractClassAnnotations($reflectionClass));
+            $extractionResult->addMethodAnnotations($this->annotationExtractor->extractMethodsAnnotations($reflectionClass));
         }
 
         return $extractionResult;
