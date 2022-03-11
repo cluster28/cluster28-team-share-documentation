@@ -2,12 +2,12 @@
 
 namespace Cluster28\TeamShareDocumentation\Extractor;
 
-use Cluster28\TeamShareDocumentation\Model\Collection\Annotations;
+use Cluster28\TeamShareDocumentation\Model\ExtractionResult;
 
 /**
  * @author Jordi Rejas <github@rejas.eu>
  */
 interface ExtractorInterface
 {
-    public function extractAnnotations(): Annotations;
+    public function execute(): ExtractionResult;
 }

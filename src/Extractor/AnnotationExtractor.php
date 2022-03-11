@@ -3,6 +3,7 @@
 namespace Cluster28\TeamShareDocumentation\Extractor;
 
 use Cluster28\TeamShareDocumentation\Annotation\ShareAnnotation;
+use Cluster28\TeamShareDocumentation\Model\AnnotationData;
 use Doctrine\Common\Annotations\AnnotationReader;
 use ReflectionClass;
 use ReflectionMethod;
@@ -26,7 +27,12 @@ class AnnotationExtractor implements AnnotationExtractorInterface
         if (count($classAnnotations) > 0) {
             foreach ($classAnnotations as $classAnnotation) {
                 if ($classAnnotation instanceof ShareAnnotation) {
-                    $allClassAnnotations[] = [$reflectionClass, $classAnnotation];
+                    $allClassAnnotations[] = $this->createAnnotationData(
+                        $classAnnotation,
+                        $reflectionClass->getName(),
+                        false,
+                        $reflectionClass->getName()
+                    );
                 }
             }
         }
@@ -43,12 +49,31 @@ class AnnotationExtractor implements AnnotationExtractorInterface
             if (count($methodAnnotations) > 0) {
                 foreach ($methodAnnotations as $methodAnnotation) {
                     if ($methodAnnotation instanceof ShareAnnotation) {
-                        $allMethodAnnotations[] = [$reflectionMethod, $methodAnnotation];
+                        $allMethodAnnotations[] = $this->createAnnotationData(
+                            $methodAnnotation,
+                            $reflectionClass->getName(),
+                            true,
+                            $reflectionMethod->getName()
+                        );
                     }
                 }
             }
         }
 
         return $allMethodAnnotations;
+    }
+
+    public function createAnnotationData(
+        ShareAnnotation $shareAnnotation,
+        string $className,
+        bool $inMethod = false,
+        string $methodName = ''
+    ) {
+        $annotation = new AnnotationData();
+        $annotation->setClassName($className);
+        $annotation->setIsInMethod($inMethod);
+        $annotation->setMethodName($methodName);
+        $annotation->setAnnotation($shareAnnotation);
+        return $annotation;
     }
 }
